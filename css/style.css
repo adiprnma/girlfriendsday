@@ -2,113 +2,77 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif; /* Menggunakan font Quicksand, pastikan di-import di HTML */
-    overflow: hidden; /* Penting untuk mencegah scroll saat halaman berbalik */
+    font-family: 'Quicksand', sans-serif; /* Pastikan di-import di setiap HTML */
+    background: linear-gradient(to right, #ffccd5, #ffadcd); /* Gradient pink background */
+    color: #4a4a4a;
     display: flex;
+    flex-direction: column; /* Mengatur layout vertikal */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #ffccd5, #ffadcd); /* Gradient pink background */
-    color: #4a4a4a;
+    text-align: center;
+    overflow-x: hidden; /* Mencegah scroll horizontal jika ada elemen meluber */
 }
 
-.book-container {
-    perspective: 1500px; /* Memberikan efek 3D untuk membalik halaman */
-    position: relative;
-    width: 900px; /* Lebar total buku (dua halaman terbuka) */
-    height: 600px; /* Tinggi buku */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Page Styling */
-.page {
-    position: absolute;
-    width: 450px; /* Lebar satu halaman */
-    height: 600px; /* Tinggi satu halaman */
-    background-color: #fcfcfc;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transform-origin: left; /* Titik putar untuk halaman */
-    transition: transform 0.8s ease-in-out, z-index 0s 0.8s; /* Animasi membalik halaman */
+.page-content-wrapper { /* Mengganti .container atau .page untuk fokus pada satu halaman */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    margin: 20px auto; /* Memberi sedikit margin agar tidak terlalu mepet */
+    animation: fadeIn 1.5s ease-out; /* Animasi fade-in saat halaman dimuat */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+    min-height: 400px; /* Tinggi minimal agar ada ruang */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Konten dari atas */
+    justify-content: flex-start;
     align-items: center;
-    padding: 30px;
-    box-sizing: border-box;
-    backface-visibility: hidden; /* Sembunyikan sisi belakang saat berputar */
-    overflow-y: auto; /* Jika konten terlalu panjang */
-    line-height: 1.6;
 }
 
-/* Specific Page Z-index and initial position */
-#cover {
-    z-index: 10;
-    left: 50%; /* Posisi awal sampul (tengah) */
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#page2 {
-    z-index: 9;
-    left: 0; /* Posisi awal halaman 2 (kiri) */
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transform-origin: right; /* Berputar dari kanan */
-    transform: rotateY(180deg); /* Sisi belakang terlihat saat awal (tertutup) */
-}
-
-#page3 {
-    z-index: 8;
-    left: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transform-origin: right;
-    transform: rotateY(180deg);
-}
-
-/* Add more pages as needed following the pattern */
-/* #pageN { z-index: ..., left: 0; transform-origin: right; transform: rotateY(180deg); } */
-
-
-/* Page Content Styling */
-.page-content {
-    width: 100%;
-    text-align: center;
-}
-
-.page h2 {
-    font-family: 'Pacifico', cursive; /* Menggunakan font Pacifico, pastikan di-import di HTML */
-    color: #e91e63;
-    font-size: 2.5em;
+h1, h2 {
+    font-family: 'Pacifico', cursive; /* Pastikan di-import di setiap HTML */
+    color: #e91e63; /* Deep pink */
+    font-size: 3em; /* Untuk H1 */
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-.page p {
+h2 {
+    font-size: 2.5em; /* Untuk H2 di halaman isi */
+}
+
+p {
     font-size: 1.1em;
-    color: #666;
+    line-height: 1.8;
     margin-bottom: 15px;
+    color: #666;
 }
 
-.page img {
+img {
     max-width: 90%;
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Controls */
+/* Navigation Controls */
 .controls {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
     display: flex;
     justify-content: center;
     gap: 20px;
-    z-index: 20; /* Pastikan di atas halaman */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 90%; /* Sesuaikan lebar tombol dengan halaman */
+    max-width: 700px;
 }
 
 .nav-button {
@@ -119,8 +83,12 @@ body {
     border-radius: 30px;
     font-size: 1em;
     cursor: pointer;
+    text-decoration: none; /* Penting untuk link */
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex; /* Agar padding dan text-align center bekerja */
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-button:hover {
@@ -128,68 +96,32 @@ body {
     transform: translateY(-2px);
 }
 
-.nav-button:disabled {
+.nav-button:disabled { /* Untuk tombol yang tidak aktif (misal: "Prev" di halaman 1) */
     background-color: #ccc;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-/* Animations for flipping */
-.page.flip-right {
-    transform: rotateY(-180deg);
-    z-index: 100; /* Bawa ke depan saat membalik */
-    transition: transform 0.8s ease-in-out, z-index 0s;
-}
-
-.page.flipped { /* Untuk halaman yang sudah terbalik dan diam di kiri */
-    transform: rotateY(-180deg);
-    left: 0;
-}
-
-.page.flip-left {
-    transform: rotateY(0deg);
-    z-index: 100;
-    transition: transform 0.8s ease-in-out, z-index 0s;
-}
-
-
 /* Media Queries for smaller screens */
-@media (max-width: 950px) {
-    .book-container {
-        width: 100%;
-        height: 80vh; /* Sesuaikan tinggi untuk mobile */
-        flex-direction: column; /* Ubah tata letak jadi kolom */
+@media (max-width: 768px) {
+    .page-content-wrapper {
+        padding: 25px;
     }
-
-    .page {
-        width: 80%; /* Lebar halaman di mobile */
-        height: 100%; /* Tinggi halaman di mobile */
-        position: relative; /* Kembali ke posisi normal */
-        left: auto;
-        transform: none; /* Hilangkan rotasi 3D */
-        margin-bottom: 20px; /* Jarak antar halaman */
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    h1 {
+        font-size: 2.2em;
     }
-
-    #cover, #page2, #page3 {
-        left: auto; /* Reset left positioning */
-        transform: none; /* Disable 3D transforms */
-        border-radius: 10px;
+    h2 {
+        font-size: 1.8em;
     }
-
-    .controls {
-        position: relative; /* Pindahkan kontrol ke bawah */
-        bottom: auto;
-        margin-top: 20px;
-    }
-
-    .page h2 {
-        font-size: 2em;
-    }
-
-    .page p {
+    p {
         font-size: 1em;
+    }
+    .controls {
+        flex-direction: column; /* Tombol bertumpuk di mobile */
+        gap: 10px;
+    }
+    .nav-button {
+        width: 100%; /* Tombol penuh lebar di mobile */
     }
 }
