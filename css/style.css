@@ -2,60 +2,109 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif; /* Pastikan di-import di setiap HTML */
-    background: linear-gradient(to right, #ffccd5, #ffadcd); /* Gradient pink background */
-    color: #4a4a4a;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden; /* Penting untuk mencegah scroll saat halaman berbalik */
     display: flex;
-    flex-direction: column; /* Mengatur layout vertikal */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    text-align: center;
-    overflow-x: hidden; /* Mencegah scroll horizontal jika ada elemen meluber */
+    background: linear-gradient(to right, #ffccd5, #ffadcd); /* Gradient pink */
+    color: #4a4a4a;
+    position: relative; /* Untuk positioning confetti */
 }
 
-.page-content-wrapper { /* Mengganti .container atau .page untuk fokus pada satu halaman */
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    max-width: 700px;
-    width: 90%;
-    margin: 20px auto; /* Memberi sedikit margin agar tidak terlalu mepet */
-    animation: fadeIn 1.5s ease-out; /* Animasi fade-in saat halaman dimuat */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
-    min-height: 400px; /* Tinggi minimal agar ada ruang */
+.book-container {
+    perspective: 1500px; /* Memberikan efek 3D untuk membalik halaman */
+    position: relative;
+    width: 900px; /* Lebar total buku (dua halaman terbuka) */
+    height: 600px; /* Tinggi buku */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Shadow untuk kesan buku tebal */
+    border-radius: 10px;
+}
+
+/* Page Styling */
+.page {
+    position: absolute;
+    width: 450px; /* Lebar satu halaman */
+    height: 600px; /* Tinggi satu halaman */
+    background-color: #fcfcfc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform-origin: left; /* Titik putar untuk halaman */
+    transition: transform 0.8s ease-in-out, z-index 0s 0.8s; /* Animasi membalik halaman */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; /* Konten di tengah secara vertikal */
     align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    backface-visibility: hidden; /* Sembunyikan sisi belakang saat berputar */
+    overflow-y: auto; /* Jika konten terlalu panjang */
+    line-height: 1.6;
+    text-align: center;
+    border-radius: 10px; /* Sudut sedikit membulat */
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Specific Page Z-index and initial position */
+#cover {
+    z-index: 10;
+    left: 50%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-h1, h2 {
-    font-family: 'Pacifico', cursive; /* Pastikan di-import di setiap HTML */
-    color: #e91e63; /* Deep pink */
-    font-size: 3em; /* Untuk H1 */
+/* All other pages start hidden and rotated */
+.page:not(#cover) {
+    z-index: 9; /* Default z-index for pages behind the cover */
+    left: 0;
+    transform-origin: right;
+    transform: rotateY(180deg); /* Sisi belakang terlihat saat awal (tertutup) */
+    display: none; /* Sembunyikan semua halaman kecuali cover secara default */
+}
+
+/* Active page styling (when it's the current visible page) */
+.page.active-page {
+    display: flex; /* Make sure it's visible when active */
+    transform: rotateY(0deg); /* No rotation for the active page */
+    left: 0; /* Active pages are on the left side of the book opening */
+    z-index: 1; /* Keep it below flipping page */
+    border-top-right-radius: 0; /* No rounded corner on the left side when open */
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 10px; /* Rounded corner on the left side */
+    border-bottom-left-radius: 10px;
+}
+
+
+/* Page Content Styling */
+.page-content {
+    width: 100%;
+    /* text-align: center; */ /* Already set in .page */
+}
+
+.page h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    font-size: 3em;
     margin-bottom: 20px;
-    line-height: 1.2;
 }
 
-h2 {
-    font-size: 2.5em; /* Untuk H2 di halaman isi */
+.page h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-p {
+.page p {
     font-size: 1.1em;
-    line-height: 1.8;
-    margin-bottom: 15px;
     color: #666;
+    margin-bottom: 15px;
 }
 
-img {
+.page img {
     max-width: 90%;
     height: auto;
     border-radius: 10px;
@@ -64,15 +113,15 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation Controls */
+/* Controls */
 .controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    width: 90%; /* Sesuaikan lebar tombol dengan halaman */
-    max-width: 700px;
+    z-index: 20; /* Pastikan di atas halaman */
 }
 
 .nav-button {
@@ -83,12 +132,19 @@ img {
     border-radius: 30px;
     font-size: 1em;
     cursor: pointer;
-    text-decoration: none; /* Penting untuk link */
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: inline-flex; /* Agar padding dan text-align center bekerja */
-    justify-content: center;
-    align-items: center;
+    /* display: none; */ /* Tombol awalnya disembunyikan dan muncul setelah interaksi */
+    opacity: 0;
+    pointer-events: none; /* Tidak bisa diklik saat hidden */
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+.nav-button.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 .nav-button:hover {
@@ -96,32 +152,293 @@ img {
     transform: translateY(-2px);
 }
 
-.nav-button:disabled { /* Untuk tombol yang tidak aktif (misal: "Prev" di halaman 1) */
+.nav-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
+/* Animations for flipping */
+.page.flip-right { /* Halaman yang sedang dibalik ke kanan */
+    transform: rotateY(-180deg);
+    z-index: 100; /* Bawa ke depan saat membalik */
+    transition: transform 0.8s ease-in-out, z-index 0s;
+}
+
+.page.flip-left { /* Halaman yang sedang dibalik ke kiri */
+    transform: rotateY(0deg);
+    z-index: 100;
+    transition: transform 0.8s ease-in-out, z-index 0s;
+}
+
+
+/* ----- Interaksi Spesifik Per Halaman ----- */
+
+/* Halaman 1 (Cover): Kucing Interaktif */
+.cat-interactive {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+    margin-top: 30px;
+}
+.cat-interactive:hover {
+    transform: scale(1.05);
+}
+.cat-interactive:active {
+    transform: scale(0.95);
+}
+.cat-interactive.clicked {
+    animation: bounce 0.5s ease-in-out;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Halaman 2: Petunjuk Hati Tersembunyi */
+.hidden-heart-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}
+.hidden-heart-item {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 3em;
+}
+.hidden-heart-item:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+}
+.hidden-heart-item.found {
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+    animation: pulse 1s infinite alternate;
+}
+.heart-message {
+    margin-top: 20px;
+    color: #e91e63;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.heart-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Halaman 3: Kotak Kenangan Berputar */
+.rotating-box {
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border: 5px solid #e91e63;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: grab;
+    margin-top: 30px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+.rotating-box:active {
+    cursor: grabbing;
+}
+.memory-display {
+    margin-top: 20px;
+    min-height: 100px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.memory-display.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Halaman 4: Gelembung Pesan Manis */
+.bubble-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+.bubble {
+    width: 80px;
+    height: 80px;
+    background-color: #add8e6; /* Light blue */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    position: relative;
+    font-size: 1.2em;
+}
+.bubble:hover {
+    transform: translateY(-5px);
+    background-color: #87ceeb;
+}
+.bubble.popped {
+    animation: pop 0.3s forwards;
+    opacity: 0; /* Hide after pop */
+    pointer-events: none; /* Disable interaction */
+}
+@keyframes pop {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+.bubble-message {
+    margin-top: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e91e63;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.bubble-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Halaman 5: Bunga Mekar Janji */
+.flower-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flower-stem {
+    width: 10px;
+    height: 100px;
+    background-color: #5cb85c; /* Green */
+    border-radius: 5px;
+}
+.flower-bud {
+    width: 60px;
+    height: 60px;
+    background-color: #d32f2f; /* Red bud */
+    border-radius: 50%;
+    margin-top: -10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.flower-bud.bloomed {
+    background-color: #ff4081; /* Pink flower */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Adjust for petal effect if desired */
+    animation: bloom 1s ease-out forwards;
+}
+@keyframes bloom {
+    0% { transform: scale(1); background-color: #d32f2f; }
+    50% { transform: scale(1.2); background-color: #ff80ab; }
+    100% { transform: scale(1); background-color: #ff4081; }
+}
+.petal {
+    position: absolute;
+    width: 60px; /* Lebar petal */
+    height: 60px; /* Tinggi petal */
+    background-color: #ff80ab; /* Warna petal */
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.flower-bud.bloomed .petal:nth-child(1) { top: -20px; left: 30px; transform: rotate(45deg); opacity: 1; }
+.flower-bud.bloomed .petal:nth-child(2) { top: 30px; left: 80px; transform: rotate(135deg); opacity: 1; }
+.flower-bud.bloomed .petal:nth-child(3) { top: 80px; left: 30px; transform: rotate(225deg); opacity: 1; }
+.flower-bud.bloomed .petal:nth-child(4) { top: 30px; left: -20px; transform: rotate(315deg); opacity: 1; }
+
+
+.flower-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e91e63;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.flower-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Media Queries for smaller screens */
-@media (max-width: 768px) {
-    .page-content-wrapper {
-        padding: 25px;
+@media (max-width: 950px) {
+    .book-container {
+        width: 100%;
+        height: 80vh;
+        box-shadow: none; /* Hilangkan shadow buku */
+        border-radius: 0;
     }
-    h1 {
-        font-size: 2.2em;
+    .page {
+        width: 90%; /* Lebar halaman di mobile */
+        height: 100%; /* Tinggi halaman di mobile */
+        position: relative;
+        left: auto;
+        transform: none !important; /* Hilangkan rotasi 3D di mobile */
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1 !important; /* Pastikan semua halaman punya z-index normal di mobile */
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Ganti animasi untuk mobile */
     }
-    h2 {
-        font-size: 1.8em;
+    #cover {
+        left: auto;
+        border-radius: 10px;
     }
-    p {
-        font-size: 1em;
+    .page:not(.active-page) {
+        display: none !important; /* Sembunyikan halaman tidak aktif di mobile */
+        opacity: 0;
+    }
+    .page.active-page {
+        opacity: 1;
+        transform: translateY(0) !important;
+        display: flex !important;
+        border-radius: 10px;
     }
     .controls {
-        flex-direction: column; /* Tombol bertumpuk di mobile */
-        gap: 10px;
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
+        flex-direction: column;
+        width: 80%;
     }
     .nav-button {
-        width: 100%; /* Tombol penuh lebar di mobile */
+        width: 100%;
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    p { font-size: 1em; }
+
+    /* Remove 3D flip for mobile - CSS is complex, handled mostly by JS now */
+    .page.flip-right, .page.flip-left {
+        transform: none !important;
     }
 }
