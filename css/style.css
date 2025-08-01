@@ -8,12 +8,11 @@ body {
     background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    min-height: 100vh; /* Agar halaman tetap tinggi walau konten sedikit */
+    /* min-height dan justify-content dihapus agar bisa scroll */
     text-align: center;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    padding: 5vh 0; /* Tambahkan ruang di atas dan bawah */
 }
 
 .card-container {
@@ -30,7 +29,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Konten dimulai dari atas */
     align-items: center;
 }
 
@@ -38,7 +37,6 @@ body {
 @media (max-width: 650px) {
     .card-container {
         width: 90%;
-        transform: scale(1);
     }
     h1 { font-size: 2.2em; }
     h2 { font-size: 1.6em; }
