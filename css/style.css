@@ -1,9 +1,11 @@
+/* ================================ */
 /* General Body & Container Styling */
+/* ================================ */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(to bottom, #fde9f7, #f7d2e8); /* Soft pink gradient */
+    background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,19 +20,21 @@ body {
     position: relative;
     transform: scale(0.9);
     transition: transform 0.5s ease-out;
-    background-color: #fce7f3; /* Light pink background */
-    border: 3px solid #ffb8d9; /* Pink border */
+    background-color: #fce7f3;
+    border: 3px solid #ffb8d9;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Mengatur spasi konten agar rapi */
     align-items: center;
 }
 
+/* ================================ */
 /* Card Content Styling */
+/* ================================ */
 h1 {
     font-family: 'Pacifico', cursive;
     color: #e91e63;
@@ -41,13 +45,16 @@ h2 {
     font-family: 'Pacifico', cursive;
     color: #e91e63;
     font-size: 2em;
+    margin-top: 0;
     margin-bottom: 20px;
 }
 p {
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 1.6;
     color: #4a4a4a;
+    max-width: 85%; /* Membatasi lebar paragraf untuk keterbacaan */
+    margin: 10px auto;
 }
 img {
     max-width: 90%;
@@ -56,9 +63,14 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ================================ */
 /* Button & Interaction Styling */
+/* ================================ */
 .interaction-area {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .button-group {
@@ -86,256 +98,13 @@ img {
     transform: translateY(-2px);
 }
 
-/* --- Interaksi Kucing (Lapisan 2) --- */
-.cat-interactive {
-    width: 200px;
-    height: 200px;
-    cursor: pointer;
-    transition: transform 0.2s ease-out;
-    margin-top: 30px;
-}
-.cat-interactive:hover { transform: scale(1.05); }
-
-/* --- Interaksi Hati (Lapisan 3) --- */
-.heart-button {
-    font-size: 5em;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.heart-button:hover { transform: scale(1.1); }
-.heart-button.clicked {
-    animation: heart-pulse 1s infinite alternate;
-}
-@keyframes heart-pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
-}
-
-/* --- Interaksi Kotak (Lapisan 4) --- */
-.rotating-box {
-    width: 250px;
-    height: 250px;
-    background-color: #fff;
-    border: 5px solid #ff69b4;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-}
-
-/* --- Interaksi Gelembung (Lapisan 5) --- */
-.bubble-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-}
-.bubble {
-    width: 80px;
-    height: 80px;
-    background-color: #add8e6;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-/* --- Interaksi Bunga (Lapisan 6) --- */
-.flower-container {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.flower-bud {
-    width: 60px;
-    height: 60px;
-    background-color: #d32f2f;
-    border-radius: 50%;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.flower-bud.bloomed {
-    background-color: #ff4081;
-    width: 120px;
-    height: 120px;
-    animation: bloom 1s ease-out forwards;
-}
-@keyframes bloom {
-    from { transform: scale(1); }
-    to { transform: scale(1.2); }
-}
-/* ... (kode CSS yang sudah ada) ... */
-
-/* Button & Interaction Styling */
-.interaction-area {
-    margin-top: 30px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.action-button {
-    background-color: #e91e63;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 1em;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.action-button:hover {
-    background-color: #c2185b;
-    transform: translateY(-2px);
-}
-/* --- Tambahan untuk Lapisan 2 --- */
-
-.love-emoji {
-    font-size: 5em;
-    cursor: pointer;
-    margin-top: 30px;
-    transition: transform 0.3s ease;
-}
-
-.love-emoji:hover {
-    transform: scale(1.1);
-}
-/* Update gaya untuk h2 di dalam card-container */
-.card-container h2 {
-    font-family: 'Pacifico', cursive;
-    color: #e91e63;
-    font-size: 2em; /* Atur ukuran font agar tidak terlalu besar */
-    margin-top: 0;   /* Pastikan tidak ada margin di atas */
-    margin-bottom: 20px;
-    padding-top: 10px; /* Tambahkan padding di atas agar tidak terlalu mepet */
-}
-
-/* Pastikan card-container memiliki padding yang cukup */
-.card-container {
-    width: 600px;
-    height: 400px;
-    position: relative;
-    background-color: #fce7f3;
-    border: 3px solid #ffb8d9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    padding: 20px; /* Padding ini penting agar konten tidak menempel di pinggir */
-    box-sizing: border-box; /* Agar padding tidak menambah lebar */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Konten dimulai dari atas */
-    align-items: center;
-}
-/* --- Tambahan untuk Lapisan 3 --- */
-
-.pinky-promise-btn {
-    width: 120px;
-    height: auto;
-    cursor: pointer;
-    margin-top: 30px;
-    transition: transform 0.3s ease;
-}
-
-.pinky-promise-btn:hover {
-    transform: scale(1.1);
-}
-/* Tambahan untuk Lapisan 3 - perbaiki tata letak teks */
-.card-container p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #4a4a4a;
-    max-width: 85%; /* Batasi lebar paragraf */
-    margin: 10px auto; /* Tambahkan margin agar rapi */
-}
-/* --- Tambahan untuk Footer Navigasi --- */
-.footer-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Background semi-transparan */
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.footer-nav-content {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.footer-nav-btn {
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.footer-nav-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Hapus margin pada elemen navigasi yang lama */
 .love-emoji, .pinky-promise-btn {
-    margin: 0; 
-}
-/* --- Perbaikan untuk Footer Navigasi yang Konsisten --- */
-.footer-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column; /* Mengatur konten secara vertikal */
-    align-items: center;
-    gap: 10px; /* Jarak antara elemen di footer */
-}
-
-.footer-nav-text {
-    margin: 0;
-    font-weight: bold;
-    color: #4a4a4a;
-}
-
-.footer-nav-btn {
-    text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
-.footer-nav-btn:hover {
+.love-emoji:hover, .pinky-promise-btn:hover {
     transform: scale(1.1);
 }
 
-.love-emoji, .pinky-promise-btn, .action-button {
-    margin: 0; /* Pastikan margin di dalam footer hilang */
-}
+.love-emoji { font-size: 5em; }
+.pinky-promise-btn { width: 120px; }
