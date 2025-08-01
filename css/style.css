@@ -3,115 +3,82 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(to bottom, #fde9f7, #f7d2e8); /* Soft pink gradient */
+    background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    text-align: center;
     overflow: hidden;
 }
 
-.card-container {
-    width: 600px;
-    height: 400px;
+.gift-box-container {
     position: relative;
-    transform: scale(0.9);
-    transition: transform 0.5s ease-out;
+    width: 700px;
+    height: 550px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    perspective: 1000px; /* For 3D transform */
+    border-radius: 20px;
 }
 
-/* Card/Envelope Styling */
-.envelope {
-    position: relative;
+/* Layer styling */
+.layer {
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #fce7f3; /* Light pink background */
-    border: 3px solid #ffb8d9; /* Pink border */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    transition: transform 0.8s ease-in-out;
-}
-
-.envelope-flap {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background-color: #ffb8d9;
-    clip-path: polygon(0 0, 100% 0, 50% 100%); /* Membuat bentuk segitiga */
-    transform-origin: bottom;
-    transition: transform 0.8s ease-in-out;
-    border-radius: 15px 15px 0 0;
-}
-
-/* Open state for the envelope flap */
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-}
-
-.card-inside {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 90%;
-    height: 90%;
     background-color: #ffffff;
-    border: 1px solid #ddd;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Awalnya tidak terlihat */
-    transition: opacity 0.8s ease-in-out 0.5s, transform 0.5s ease-out; /* Delay opacity */
-}
-
-/* Visible state for the card inside */
-.envelope.open .card-inside {
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                opacity 0.8s ease-in-out;
+    transform-origin: top center;
+    backface-visibility: hidden;
+    z-index: 10; /* Starting z-index */
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
 }
 
-/* Card Content Styling */
-.card-content {
-    width: 100%;
+/* Specific layer colors and depth effect */
+#layer1 { background-color: #f7d2e8; z-index: 7; }
+#layer2 { background-color: #fce7f3; z-index: 6; }
+#layer3 { background-color: #f7d2e8; z-index: 5; }
+#layer4 { background-color: #fce7f3; z-index: 4; }
+#layer5 { background-color: #f7d2e8; z-index: 3; }
+#layer6 { background-color: #fce7f3; z-index: 2; }
+#layer7 { background-color: #f7d2e8; z-index: 1; }
+
+/* Open state for layers */
+.layer.open {
+    transform: translateY(-100%) rotateX(90deg) scale(0.8);
+    opacity: 0;
+}
+
+/* Content styling */
+.content {
+    max-width: 100%;
+}
+.content h1 {
     font-family: 'Pacifico', cursive;
     color: #e91e63;
-}
-
-.card-content h1 {
     font-size: 3em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
-.card-content p {
-    font-family: 'Quicksand', sans-serif;
+.content p {
     font-size: 1.2em;
     line-height: 1.6;
-    color: #4a4a4a;
+    color: #666;
 }
 
 /* Button & Interaction Styling */
-.interaction-area {
-    margin-top: 30px;
-}
-
-.interaction-area h2 {
-    font-size: 1.5em;
-    color: #666;
-    margin-bottom: 20px;
-    font-weight: normal;
-}
-
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .action-button {
@@ -122,57 +89,109 @@ body {
     border-radius: 30px;
     font-size: 1em;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    opacity: 1;
+}
+.action-button:hover { background-color: #c2185b; transform: translateY(-2px); }
+.action-button:disabled { background-color: #ccc; cursor: not-allowed; transform: none; opacity: 0.7; }
+
+/* Animation for the "Please choose yes" message */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
-.action-button:hover {
-    background-color: #c2185b;
-    transform: translateY(-2px);
+/* Layer 2: Heart Icon */
+.love-icon {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+.love-icon:hover { transform: scale(1.1); }
+.love-icon.clicked { animation: heartbeat 0.5s infinite; }
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
-.action-button.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-    opacity: 0.7;
+/* Layer 3: Pinky Promise */
+.pinky-promise {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s ease-in-out;
 }
+.pinky-promise:hover { transform: scale(1.1); }
+.pinky-promise.clicked { animation: pulse 0.8s; }
 
-/* Persuasion message styling */
-#persuasion-message {
+/* Layer 4: Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     margin-top: 20px;
-    color: #ff69b4;
-    font-weight: bold;
-    font-size: 1.2em;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
-#persuasion-message.show {
-    opacity: 1;
-    transform: translateY(0);
+.photo-gallery img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.photo-gallery img.viewed {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+.photo-gallery img:hover { transform: scale(1.05); }
+
+/* Layer 5: Music Player */
+.music-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 80%;
+}
+.music-player audio {
+    width: 100%;
+    margin-top: 10px;
+}
+.music-player p {
+    font-style: italic;
+    font-size: 1em;
+    color: #888;
 }
 
-/* Responsive Styles */
-@media (max-width: 650px) {
-    .card-container {
-        width: 90%;
-        height: auto;
-    }
-    .card-content h1 {
-        font-size: 2em;
-    }
-    .card-content p {
-        font-size: 1em;
-    }
-    .button-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .action-button {
-        width: 100%;
-            }
-    }
+/* Layer 6: Movie Posters */
+.movie-posters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+.movie-poster-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.movie-posters img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.movie-posters p {
+    font-size: 0.9em;
+    margin-top: 8px;
+    font-weight: bold;
+}

@@ -3,51 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For my gf, fifi</title>
+    <title>Kotak Cinta untukmu, [Nama Pacarmu]</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Animation for nudging the button */
-        @keyframes nudge {
-            from { transform: translateX(0); }
-            to { transform: translateX(5px); }
-        }
-    </style>
 </head>
 <body>
-    <div class="card-container">
-        <div id="envelope" class="envelope">
-            <div class="envelope-flap"></div>
+    <div class="gift-box-container">
+        
+        <div id="layer7" class="layer">
+            <div class="content">
+                <h1>Halaman Penutup</h1>
+                <p>
+                    Terima kasih sudah membuka kotak ini, Sayang. Semoga setiap lapisannya bisa menyampaikan sedikit dari rasa cintaku yang begitu besar untukmu.
+                    <br><br>
+                    Aku tidak akan pernah lelah untuk terus mencintaimu dan membuatmu bahagia. Selamanya dan selalu.
+                    <br><br>
+                    <span style="font-family: 'Pacifico', cursive; font-size: 1.5em; color: #e91e63;">[Namamu] ❤️</span>
+                </p>
+            </div>
+        </div>
 
-            <div class="card-inside">
-                <div class="card-content">
-                    <h1>Happy Girlfriend's day sayangg</h1>
-                    <img src="https://via.placeholder.com/300x200?text=Foto+Kalian" alt="Foto Kalian" style="max-width: 90%; border-radius: 10px; margin: 15px 0;">
-                    <p>
-                        Halo sayangggg
-                        <br><br>
-                        Sebelum kamu buka cardnya, aku mau bilang terima kasih karena telah memberi aku kesempatan untuk bisa dekat dengan kamu, kata frank ocean mah
-                        <br><br>
-                        If love had a color, it'd be the shade of your voice in the dark.
-                        <br><br>
-                        <span style="font-weight: bold;">With all my heart, Adi ❤️</span>
+        <div id="layer6" class="layer">
+            <div class="content">
+                <h1>4 Film Favoritmu</h1>
+                <p>Ini adalah beberapa film yang aku tahu kamu suka. Semoga bisa jadi ide untuk movie marathon kita selanjutnya!</p>
+                <div class="movie-posters">
+                    <div class="movie-poster-item">
+                        <img src="images/poster-film-1.jpg" alt="Poster Film 1">
+                        <p>Judul Film 1</p>
+                    </div>
+                    <div class="movie-poster-item">
+                        <img src="images/poster-film-2.jpg" alt="Poster Film 2">
+                        <p>Judul Film 2</p>
+                    </div>
+                    <div class="movie-poster-item">
+                        <img src="images/poster-film-3.jpg" alt="Poster Film 3">
+                        <p>Judul Film 3</p>
+                    </div>
+                    <div class="movie-poster-item">
+                        <img src="images/poster-film-4.jpg" alt="Poster Film 4">
+                        <p>Judul Film 4</p>
+                    </div>
+                </div>
+                <button id="movieNextBtn" class="action-button" style="display: none; margin-top: 30px;">Lanjut</button>
+            </div>
+        </div>
+        
+        <div id="layer5" class="layer">
+            <div class="content">
+                <h1>Lagu yang Mengingatkanku Padamu</h1>
+                <p>Frank Ocean - Pink Matter</p>
+                <div class="music-player">
+                    <p style="font-style: normal; font-weight: bold; font-size: 1.1em; color: #e91e63;">
+                        "If love had a color, it'd be the shade of your voice in the dark."
                     </p>
+                    <audio controls src="audio/pink-matter.mp3"></audio>
+                </div>
+                <button id="musicNextBtn" class="action-button" style="margin-top: 30px;">Lanjut</button>
+            </div>
+        </div>
+        
+        <div id="layer4" class="layer">
+            <div class="content">
+                <h1>Pujian untuk Foto-fotomu</h1>
+                <p>Ini adalah beberapa foto favoritku tentangmu. Kamu selalu terlihat cantik apa adanya. Klik semua fotonya ya!</p>
+                <div class="photo-gallery">
+                    <img src="images/foto-dia-1.jpg" alt="Foto Pacar 1">
+                    <img src="images/foto-dia-2.jpg" alt="Foto Pacar 2">
+                    <img src="images/foto-dia-3.jpg" alt="Foto Pacar 3">
+                    <img src="images/foto-dia-4.jpg" alt="Foto Pacar 4">
+                    <img src="images/foto-dia-5.jpg" alt="Foto Pacar 5">
+                    <img src="images/foto-dia-6.jpg" alt="Foto Pacar 6">
+                </div>
+                <button id="photoNextBtn" class="action-button" style="display: none; margin-top: 30px;">Lanjut</button>
+            </div>
+        </div>
+        
+        <div id="layer3" class="layer">
+            <div class="content">
+                <h1>Permintaan Maaf</h1>
+                <p>
+                    Sayang, aku tahu terkadang aku egois atau melakukan hal-hal yang membuatmu kesal. Untuk itu, aku minta maaf. Aku berjanji akan berusaha lebih baik untukmu.
+                </p>
+                <p>
+                    Mari kita berjanji untuk selalu saling mencintai dan memahami.
+                </p>
+                <img src="images/pinky-promise.png" alt="Pinky Promise" class="pinky-promise" id="pinkyPromise">
+            </div>
+        </div>
+        
+        <div id="layer2" class="layer">
+            <div class="content">
+                <h1>Rasa Syukur dan Selamat!</h1>
+                <p>
+                    Aku sangat bersyukur memiliki dirimu di sampingku. Kamu adalah hadiah terindah dalam hidupku.
+                    <br><br>
+                    Selamat Hari Girlfriend Sedunia, Sayang!
+                </p>
+                <img src="images/love-icon.png" alt="Love Icon" class="love-icon" id="loveIcon">
+            </div>
+        </div>
+
+        <div id="layer1" class="layer">
+            <div class="content">
+                <h1>Hai, [Nama Pacarmu]!</h1>
+                <p>Aku punya sesuatu yang spesial untukmu di hari ini. Kamu mau membukanya?</p>
+                <p id="persuasion-message" style="color: #ff69b4; margin-top: 15px; opacity: 0; transition: opacity 0.5s ease;"></p>
+                <div class="button-group">
+                    <button id="yesBtn" class="action-button">Ya</button>
+                    <button id="noBtn" class="action-button">Tidak</button>
+                </div>
             </div>
         </div>
     </div>
-
-        <div class="interaction-area">
-            <h2>Do you want to open it?</h2>
-            
-            <p id="persuasion-message"></p>
-
-            <div class="button-group">
-                <button id="openBtn" class="action-button">Open it</button>
-                <button id="noBtn" class="action-button">No, I'm shy</button>
-          </div>
-     </div>
- </div>
-
     <script src="js/script.js"></script>
 </body>
 </html>

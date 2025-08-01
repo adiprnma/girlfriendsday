@@ -1,30 +1,90 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const envelope = document.getElementById('envelope');
-    const openBtn = document.getElementById('openBtn');
+    const layers = document.querySelectorAll('.layer');
+    let currentLayerIndex = 0;
+
+    // Layer 1 Logic
+    const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
     const persuasionMessage = document.getElementById('persuasion-message');
-    const buttonsContainer = document.querySelector('.button-group');
+    
+    if (yesBtn) {
+        yesBtn.addEventListener('click', () => {
+            openCurrentLayer();
+        });
+    }
 
-    // Handle "Open it" button click
-    openBtn.addEventListener('click', () => {
-        // Add a class to trigger the open animation
-        envelope.classList.add('open');
-        // Hide buttons after opening
-        buttonsContainer.style.display = 'none';
-        persuasionMessage.style.display = 'none';
-        // You could add a new button here for "I love you too" etc.
-    });
+    if (noBtn) {
+        noBtn.addEventListener('click', () => {
+            persuasionMessage.textContent = "Ayolah, jangan galak-galak, Sayang... 🥺 Pilih 'Ya' dong, ya?";
+            persuasionMessage.style.opacity = '1';
+            yesBtn.style.animation = 'shake 0.5s 3';
+        });
+    }
 
-    // Handle "No, I'm shy" button click
-    noBtn.addEventListener('click', () => {
-        // Show the persuasion message
-        persuasionMessage.textContent = "Ayolah, jangan malu-malu! Aku sudah siapkan ini khusus untukmu. Plis, buka yaa.. 🙏";
-        persuasionMessage.classList.add('show');
-        
-        // Hide the "No" button
-        noBtn.style.display = 'none';
-        
-        // Add a little nudge animation to the "Open it" button
-        openBtn.style.animation = 'nudge 0.5s infinite alternate';
-    });
+    // Layer 2 Logic
+    const loveIcon = document.getElementById('loveIcon');
+    if (loveIcon) {
+        loveIcon.addEventListener('click', () => {
+            loveIcon.classList.add('clicked');
+            setTimeout(openCurrentLayer, 500); // Wait for animation
+        });
+    }
+
+    // Layer 3 Logic
+    const pinkyPromise = document.getElementById('pinkyPromise');
+    if (pinkyPromise) {
+        pinkyPromise.addEventListener('click', () => {
+            pinkyPromise.classList.add('clicked');
+            setTimeout(openCurrentLayer, 500); // Wait for animation
+        });
+    }
+
+    // Layer 4 Logic
+    const photos = document.querySelectorAll('.photo-gallery img');
+    let viewedPhotos = new Set();
+    const photoNextBtn = document.getElementById('photoNextBtn');
+    
+    if (photos.length > 0) {
+        photos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                photo.classList.add('viewed');
+                viewedPhotos.add(photo.src);
+                if (viewedPhotos.size === photos.length) {
+                    photoNextBtn.style.display = 'block';
+                }
+            });
+        });
+        if (photoNextBtn) {
+            photoNextBtn.addEventListener('click', () => {
+                openCurrentLayer();
+            });
+        }
+    }
+
+
+    // Layer 5 Logic
+    const musicNextBtn = document.getElementById('musicNextBtn');
+    if (musicNextBtn) {
+        musicNextBtn.addEventListener('click', () => {
+            openCurrentLayer();
+        });
+    }
+
+
+    // Layer 6 Logic
+    const movieNextBtn = document.getElementById('movieNextBtn');
+    if (movieNextBtn) {
+        movieNextBtn.addEventListener('click', () => {
+            openCurrentLayer();
+        });
+    }
+
+
+    // Main function to open a layer
+    function openCurrentLayer() {
+        if (currentLayerIndex < layers.length - 1) {
+            layers[currentLayerIndex].classList.add('open');
+            currentLayerIndex++;
+        }
+    }
 });
