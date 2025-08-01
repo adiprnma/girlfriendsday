@@ -31,6 +31,17 @@ body {
     align-items: center;
 }
 
+/* Penyesuaian untuk tampilan mobile */
+@media (max-width: 650px) {
+    .card-container {
+        width: 90%;
+        height: auto;
+    }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.6em; }
+    p { font-size: 1em; }
+}
+
 /* ================================ */
 /* Card Content Styling */
 /* ================================ */
@@ -110,19 +121,38 @@ img {
 .pinky-promise-btn { width: 120px; }
 .music-emoji { font-size: 5em; }
 
-/* --- Penyesuaian untuk tampilan mobile --- */
-@media (max-width: 650px) {
-    .card-container {
-        width: 90%;
-        height: auto;
-        transform: scale(1);
-    }
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.6em; }
-    p { font-size: 1em; }
+/* --- Lapisan 4: Galeri Roblox --- */
+.roblox-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.roblox-photo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.roblox-photo:hover {
+    transform: scale(1.05);
+}
+.avatar-nav {
+    width: 60px;
+    height: auto;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.avatar-nav:hover {
+    transform: scale(1.1);
 }
 
-/* --- Tambahan untuk Lapisan 5 (Embed Spotify) --- */
+/* --- Lapisan 5: Embed Spotify --- */
 .spotify-embed {
     width: 90%;
     max-width: 350px;
