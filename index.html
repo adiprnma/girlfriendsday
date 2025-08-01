@@ -7,24 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .button-group {
-            position: relative;
-            justify-content: center;
-        }
-        #yesBtn {
-            transform: scale(1);
-            transition: transform 0.3s ease;
-        }
-        #noBtn {
-            transition: all 0.3s ease;
-        }
-        #persuasion-message {
-            margin-top: 10px;
-            font-size: 1.2em;
-            color: #ff69b4;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
+        /* ... (gaya tambahan untuk tombol yang membesar/mengecil) ... */
     </style>
 </head>
 <body>
@@ -44,8 +27,7 @@
             <button class="action-button footer-nav-btn" id="noBtn">Tidak</button>
         </div>
     </footer>
-
-    <script>
+<script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
         const persuasionMessage = document.getElementById('persuasion-message');
@@ -72,6 +54,6 @@
                 persuasionMessage.style.opacity = '1';
             }
         });
-    </script>
+</script>
 </body>
 </html>
