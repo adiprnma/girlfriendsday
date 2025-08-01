@@ -261,3 +261,11 @@ img {
 .pinky-promise-btn:hover {
     transform: scale(1.1);
 }
+/* Tambahan untuk Lapisan 3 - perbaiki tata letak teks */
+.card-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #4a4a4a;
+    max-width: 85%; /* Batasi lebar paragraf */
+    margin: 10px auto; /* Tambahkan margin agar rapi */
+}
