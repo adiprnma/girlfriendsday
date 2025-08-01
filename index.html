@@ -38,24 +38,35 @@
         const persuasionMessage = document.getElementById('persuasion-message');
         let noClickCount = 0;
 
+        const messages = [
+            "Ayolah bukaaa",
+            "Masa ga mau sih?",
+            "Yakin nih ga mau buka? :(",
+            "Aku udah cape-cape loh bikinnya",
+            "Jir ilang, yauda gada pilihan lagi haha"
+        ];
+
         noBtn.addEventListener('click', () => {
             noClickCount++;
 
-            if (noClickCount === 1) {
-                persuasionMessage.textContent = "Ayolah bukaaa";
+            // Menampilkan pesan sesuai dengan jumlah klik
+            if (noClickCount <= messages.length) {
+                persuasionMessage.textContent = messages[noClickCount - 1];
                 persuasionMessage.style.opacity = '1';
             }
 
+            // Logika mengecilnya tombol "Tidak"
             const noScale = Math.max(0, 1 - (noClickCount * 0.2));
             noBtn.style.transform = `scale(${noScale})`;
             
+            // Logika membesarnya tombol "Ya"
             const yesScale = 1 + (noClickCount * 0.1);
             yesBtn.style.transform = `scale(${yesScale})`;
 
+            // Mengganti tombol "Tidak" menjadi tidak terlihat dan tombol "Ya" membesar
             if (noScale <= 0.1) {
                 noBtn.style.display = 'none';
                 yesBtn.style.transform = 'scale(1.5)';
-                persuasionMessage.textContent = "jir ilang, yauda gada pilihan lagi haha";
                 persuasionMessage.style.opacity = '1';
             }
         });
