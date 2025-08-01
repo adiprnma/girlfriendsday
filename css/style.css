@@ -161,3 +161,36 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
+
+/* --- Tambahan untuk Lapisan 6 --- */
+.movie-posters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.movie-poster {
+    width: 150px; /* Lebar poster */
+    height: 225px; /* Tinggi poster (aspek rasio 2:3) */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.movie-poster:hover {
+    transform: scale(1.05);
+}
+.next-photo-btn {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Membuat foto berbentuk bulat */
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.next-photo-btn:hover {
+    transform: scale(1.1);
+}
