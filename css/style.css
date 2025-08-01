@@ -9,17 +9,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* min-height dan justify-content dihapus agar bisa scroll */
+    justify-content: flex-start; /* KODE INI SAYA UBAH untuk fix scroll */
     text-align: center;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
-    padding: 5vh 0; /* Tambahkan ruang di atas dan bawah */
+    overflow-x: hidden;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    min-height: 100vh; /* Saya kembalikan ini agar halaman pendek tetap bagus */
 }
 
 .card-container {
     width: 600px;
-    height: auto; /* Tinggi otomatis agar bisa di-scroll */
-    max-height: 80vh; /* Batasi tinggi untuk halaman dengan konten sangat panjang */
-    overflow-y: auto; /* Aktifkan scroll di dalam kotak */
+    height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
     position: relative;
     background-color: #fce7f3;
     border: 3px solid #ffb8d9;
@@ -29,7 +31,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Konten dimulai dari atas */
+    justify-content: flex-start; /* SAYA UBAH ini agar konten mulai dari atas */
     align-items: center;
 }
 
