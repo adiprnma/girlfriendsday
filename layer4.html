@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapisan 4: Kotak Kenangan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>Kotak Kenangan Kita</h2>
+        <p>Klik kotak ini beberapa kali untuk memutar dan melihat kenangan manis kita!</p>
+        <div class="rotating-box" id="rotatingBox">
+            Klik Aku!
+        </div>
+    </div>
+    <script>
+        const rotatingBox = document.getElementById('rotatingBox');
+        let rotationCount = 0;
+        const memories = [
+            "Kencan pertama kita! Canggung tapi manis.",
+            "Saat kita terjebak hujan dan tertawa terbahak-bahak.",
+            "Liburan pertama kita, di mana kita... (isi sendiri).",
+            "Malam saat kamu menemaniku sampai tertidur.",
+        ];
+        let currentMemoryIndex = 0;
+        let isDone = false;
+        
+        rotatingBox.onclick = () => {
+            if (isDone) return;
+            
+            rotationCount++;
+            rotatingBox.textContent = memories[currentMemoryIndex];
+            currentMemoryIndex = (currentMemoryIndex + 1) % memories.length;
+
+            if (rotationCount >= 4) { // Setelah 4 kali klik, pindah halaman
+                isDone = true;
+                setTimeout(() => {
+                    window.location.href = 'layer5.html';
+                }, 1000); // Tunggu 1 detik sebelum pindah
+            }
+        };
+    </script>
+</body>
+</html>

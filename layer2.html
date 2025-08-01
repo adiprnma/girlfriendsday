@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapisan 2: Kucing Ajaib</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>"Te-hee! Aku penjaga halaman ini."</h2>
+        <img src="https://i.ibb.co/Czd5V5G/cat.png" alt="Kucing Lucu Interaktif" class="cat-interactive" id="catInteraction">
+        <p style="margin-top: 20px;">
+            Tekan hidungku kalau kamu berani!
+        </p>
+    </div>
+    <script>
+        const cat = document.getElementById('catInteraction');
+        cat.onclick = () => {
+            window.location.href = 'layer3.html';
+        };
+    </script>
+</body>
+</html>

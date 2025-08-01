@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapisan 5: Pesan Manis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>Pecahkan Gelembungnya!</h2>
+        <p>Ada pesan rahasia di dalam gelembung-gelembung ini. Pecahkan semua untuk membacanya!</p>
+        <div class="bubble-container">
+            <div class="bubble" data-msg="Aku"></div>
+            <div class="bubble" data-msg="Cinta"></div>
+            <div class="bubble" data-msg="Kamu"></div>
+            <div class="bubble" data-msg="Selamanya"></div>
+            <div class="bubble" data-msg="!"></div>
+        </div>
+    </div>
+    <script>
+        const bubbles = document.querySelectorAll('.bubble');
+        let poppedCount = 0;
+        
+        bubbles.forEach(bubble => {
+            bubble.textContent = "?"; // Teks awal di gelembung
+            bubble.onclick = () => {
+                if (!bubble.classList.contains('popped')) {
+                    bubble.textContent = bubble.getAttribute('data-msg');
+                    bubble.classList.add('popped');
+                    poppedCount++;
+                    if (poppedCount === bubbles.length) {
+                        setTimeout(() => {
+                            window.location.href = 'layer6.html';
+                        }, 1500); // Tunggu 1.5 detik sebelum pindah halaman
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>
