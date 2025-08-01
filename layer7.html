@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu, Selamanya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>Terima Kasih</h2>
+        <p>
+            Aku ingin mengucapkan terima kasih untuk semua hal kecil ini:
+        </p>
+        <ul style="text-align: justify; padding-justify: 20px;">
+            <li>Terima kasih sudah memilihku untuk menjadi bagian dari hidupmu.</li>
+            <li>Terima kasih sudah selalu sabar menghadapi sifat-sifat burukku.</li>
+            <li>Terima kasih untuk setiap tawa, cerita, dan momen tak terlupakan.</li>
+            <li>Terima kasih karena kamu sudah menjadi dirimu yang apa adanya.</li>
+        </ul>
+        
+        <div class="final-message-container">
+            <p>Dan yang paling penting dari semuanya adalah...</p>
+            <span class="love-emoji-final" id="finalClick">❤️</span>
+            <p id="secret-message">I love uuu</p>
+        </div>
+    </div>
+
+    <script>
+        const finalClickBtn = document.getElementById('finalClick');
+        const secretMessage = document.getElementById('secret-message');
+        let hasBeenClicked = false;
+
+        finalClickBtn.addEventListener('click', () => {
+            if (!hasBeenClicked) {
+                secretMessage.style.display = 'block';
+                setTimeout(() => {
+                    secretMessage.style.opacity = '1';
+                }, 10);
+                hasBeenClicked = true;
+            }
+        });
+    </script>
+</body>
+</html>

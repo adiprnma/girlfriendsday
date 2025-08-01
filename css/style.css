@@ -181,3 +181,25 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
+
+/* --- Tambahan untuk Lapisan 7 --- */
+.final-message-container {
+    margin-top: 25px;
+}
+#secret-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: #e91e63;
+    display: none; /* Pesan tersembunyi secara default */
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.love-emoji-final {
+    cursor: pointer;
+    font-size: 4em;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+.love-emoji-final:hover {
+    transform: scale(1.15);
+}
