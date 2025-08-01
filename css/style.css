@@ -28,61 +28,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.card-content-scroll { /* Container baru untuk konten yang bisa di-scroll */
-    max-height: 250px; /* Batasi tinggi konten */
-    overflow-y: auto; /* Aktifkan scroll vertikal jika konten meluap */
-    width: 100%;
-    padding: 0 10px;
-    margin-bottom: 20px;
-}
-
-/* Penyesuaian tata letak di mobile */
-@media (max-width: 650px) {
-    .card-container {
-        width: 90%;
-        height: auto;
-    }
-    .card-content-scroll {
-        max-height: 300px; /* Tinggi yang lebih fleksibel di mobile */
-    }
-}
-
-/* ... (kode CSS lainnya tetap sama) ... */
-/* ================================ */
-/* General Body & Container Styling */
-/* ================================ */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
-    display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    overflow: hidden;
-}
-
-.card-container {
-    width: 600px;
-    height: 400px;
-    position: relative;
-    transform: scale(0.9);
-    transition: transform 0.5s ease-out;
-    background-color: #fce7f3;
-    border: 3px solid #ffb8d9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Mengatur spasi konten agar rapi */
     align-items: center;
 }
 
@@ -118,22 +64,21 @@ img {
 }
 
 /* ================================ */
-/* Button & Interaction Styling */
+/* Interaksi Tombol di Index.html */
 /* ================================ */
-.interaction-area {
+.navigation-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-top: 30px;
 }
-
 .button-group {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
 }
-
 .action-button {
     background-color: #e91e63;
     color: white;
@@ -146,10 +91,27 @@ img {
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .action-button:hover {
     background-color: #c2185b;
     transform: translateY(-2px);
+}
+
+/* ================================ */
+/* Elemen Navigasi di Bawah Kotak */
+/* ================================ */
+.navigation-below-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.navigation-text {
+    margin: 0;
+    font-weight: bold;
+    color: #4a4a4a;
 }
 
 .love-emoji, .pinky-promise-btn {
@@ -159,6 +121,24 @@ img {
 .love-emoji:hover, .pinky-promise-btn:hover {
     transform: scale(1.1);
 }
-
 .love-emoji { font-size: 5em; }
 .pinky-promise-btn { width: 120px; }
+
+/* ================================ */
+/* Perbaikan Tampilan di Mobile */
+/* ================================ */
+@media (max-width: 650px) {
+    .card-container {
+        width: 90%;
+        height: auto;
+    }
+    .card-container h2 {
+        font-size: 1.8em;
+    }
+    .card-container p {
+        font-size: 1em;
+    }
+    .navigation-container {
+        margin-top: 20px;
+    }
+}
