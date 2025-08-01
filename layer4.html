@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapisan 4: Kenangan di Roblox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>Momen Kita di Roblox</h2>
+        <p>Ini beberapa petualangan seru kita di dunia virtual.</p>
+        
+        <div class="roblox-gallery">
+            <img src="images/roblox_photo1.jpg" alt="Foto Roblox 1" class="roblox-photo">
+            <img src="images/roblox_photo2.jpg" alt="Foto Roblox 2" class="roblox-photo">
+            <img src="images/roblox_photo3.jpg" alt="Foto Roblox 3" class="roblox-photo">
+            <img src="images/roblox_photo4.jpg" alt="Foto Roblox 4" class="roblox-photo">
+        </div>
+    </div>
+
+    <div class="navigation-container">
+        <p>Klik avatar untuk lanjut!</p>
+        <img src="images/avatar_fifi.png" alt="Avatar Fifi" class="avatar-nav" id="nextPageBtn">
+    </div>
+
+    <script>
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        nextPageBtn.addEventListener('click', () => {
+            window.location.href = 'layer5.html';
+        });
+    </script>
+</body>
+</html>
