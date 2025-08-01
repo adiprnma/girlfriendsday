@@ -7,21 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Gaya tambahan untuk tombol yang membesar/mengecil */
         .button-group {
-            position: relative; /* Penting untuk positioning tombol */
+            position: relative;
             justify-content: center;
         }
-
         #yesBtn {
             transform: scale(1);
             transition: transform 0.3s ease;
         }
-
         #noBtn {
             transition: all 0.3s ease;
         }
-
         #persuasion-message {
             margin-top: 10px;
             font-size: 1.2em;
@@ -38,14 +34,16 @@
 
         <div class="interaction-area">
             <h2 id="question">Do you want to open it?</h2>
-            <p id="persuasion-message">pls buka aja</p>
-            
-            <div class="button-group">
-                <a href="layer2.html" class="action-button" id="yesBtn">Ya</a>
-                <button class="action-button" id="noBtn">Tidak</button>
-            </div>
+            <p id="persuasion-message"></p>
         </div>
     </div>
+
+    <footer class="footer-nav">
+        <div class="footer-nav-content">
+            <a href="layer2.html" class="action-button footer-nav-btn" id="yesBtn">Ya</a>
+            <button class="action-button footer-nav-btn" id="noBtn">Tidak</button>
+        </div>
+    </footer>
 
     <script>
         const noBtn = document.getElementById('noBtn');
@@ -56,20 +54,17 @@
         noBtn.addEventListener('click', () => {
             noClickCount++;
 
-            // Menampilkan pesan pada klik pertama
             if (noClickCount === 1) {
+                persuasionMessage.textContent = "pls buka aja";
                 persuasionMessage.style.opacity = '1';
             }
 
-            // Logika mengecilnya tombol "Tidak"
             const noScale = Math.max(0, 1 - (noClickCount * 0.2));
             noBtn.style.transform = `scale(${noScale})`;
             
-            // Logika membesarnya tombol "Ya"
             const yesScale = 1 + (noClickCount * 0.1);
             yesBtn.style.transform = `scale(${yesScale})`;
 
-            // Mengganti tombol "Tidak" menjadi tidak terlihat dan tombol "Ya" membesar
             if (noScale <= 0.1) {
                 noBtn.style.display = 'none';
                 yesBtn.style.transform = 'scale(1.5)';
