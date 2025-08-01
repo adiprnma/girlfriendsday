@@ -7,13 +7,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ... (gaya tambahan untuk tombol yang membesar/mengecil) ... */
+        /* Gaya tambahan untuk tombol yang membesar/mengecil */
+        #yesBtn {
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        #noBtn {
+            transition: all 0.3s ease;
+        }
+        #persuasion-message {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #ff69b4;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
     </style>
 </head>
 <body>
     <div class="card-container">
         <h1>Happy Girlfriend's Day!</h1>
-        <p>Ada kejutan kecil spesial di dalam kartu ini. Mau dibuka?</p>
+        <div class="card-content-scroll">
+            <p>Ada kejutan kecil spesial di dalam kartu ini. Mau dibuka?</p>
+        </div>
 
         <div class="interaction-area">
             <h2 id="question">Do you want to open it?</h2>

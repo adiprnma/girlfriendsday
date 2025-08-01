@@ -28,6 +28,60 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-content-scroll { /* Container baru untuk konten yang bisa di-scroll */
+    max-height: 250px; /* Batasi tinggi konten */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika konten meluap */
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+/* Penyesuaian tata letak di mobile */
+@media (max-width: 650px) {
+    .card-container {
+        width: 90%;
+        height: auto;
+    }
+    .card-content-scroll {
+        max-height: 300px; /* Tinggi yang lebih fleksibel di mobile */
+    }
+}
+
+/* ... (kode CSS lainnya tetap sama) ... */
+/* ================================ */
+/* General Body & Container Styling */
+/* ================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.5s ease-out;
+    background-color: #fce7f3;
+    border: 3px solid #ffb8d9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between; /* Mengatur spasi konten agar rapi */
     align-items: center;
 }
