@@ -23,13 +23,13 @@
 <body>
     <div class="card-container">
         <h1>Happy Girlfriend's Day!</h1>
-        <p>Ada kejutan kecil spesial di dalam kartu ini. Mau dibuka?</p>
+        <p>Ada kejutan kecil spesial di dalam kartu ini. Mau dibuka ga?</p>
         <p id="persuasion-message"></p>
     </div>
 
     <div class="navigation-container">
-        <a href="layer2.html" class="action-button" id="yesBtn">Ya</a>
-        <button class="action-button" id="noBtn">Tidak</button>
+        <a href="layer2.html" class="action-button" id="yesBtn">Okeii dibuka</a>
+        <button class="action-button" id="noBtn">Malass</button>
     </div>
 
     <script>
@@ -42,7 +42,7 @@
             noClickCount++;
 
             if (noClickCount === 1) {
-                persuasionMessage.textContent = "pls buka aja";
+                persuasionMessage.textContent = "Ayolah bukaaa";
                 persuasionMessage.style.opacity = '1';
             }
 
@@ -55,7 +55,7 @@
             if (noScale <= 0.1) {
                 noBtn.style.display = 'none';
                 yesBtn.style.transform = 'scale(1.5)';
-                persuasionMessage.textContent = "Yah, tombolnya hilang! Ya sudah, klik 'Ya' aja ya. 😊";
+                persuasionMessage.textContent = "jir ilang, yauda gada pilihan lagi haha";
                 persuasionMessage.style.opacity = '1';
             }
         });
