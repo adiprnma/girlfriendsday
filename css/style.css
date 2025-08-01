@@ -12,7 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    overflow: hidden;
+    /* overflow: hidden; -> DIHAPUS agar scroll bisa berfungsi */
 }
 
 .card-container {
@@ -35,6 +35,8 @@ body {
 @media (max-width: 650px) {
     .card-container {
         width: 90%;
+        max-height: 80vh; /* Batasi tinggi kotak di mobile */
+        overflow-y: auto; /* Aktifkan scroll di dalam kotak */
         height: auto;
     }
     h1 { font-size: 2.2em; }
@@ -109,17 +111,24 @@ img {
     transform: translateY(-2px);
 }
 
-.love-emoji, .pinky-promise-btn, .music-emoji {
+.love-emoji, .pinky-promise-btn, .music-emoji, .avatar-nav, .next-photo-btn {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-.love-emoji:hover, .pinky-promise-btn:hover, .music-emoji:hover {
+.love-emoji:hover, .pinky-promise-btn:hover, .music-emoji:hover, .avatar-nav:hover, .next-photo-btn:hover {
     transform: scale(1.1);
 }
 
 .love-emoji { font-size: 5em; }
 .pinky-promise-btn { width: 120px; }
 .music-emoji { font-size: 5em; }
+.avatar-nav { width: 60px; }
+.next-photo-btn {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
 /* --- Lapisan 4: Galeri Roblox --- */
 .roblox-gallery {
@@ -141,15 +150,25 @@ img {
 .roblox-photo:hover {
     transform: scale(1.05);
 }
-.avatar-nav {
-    width: 60px;
-    height: auto;
-    margin-top: 30px;
-    cursor: pointer;
+
+/* --- Lapisan 6: Film Favorit --- */
+.movie-posters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.movie-poster {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
-.avatar-nav:hover {
-    transform: scale(1.1);
+.movie-poster:hover {
+    transform: scale(1.05);
 }
 
 /* --- Lapisan 5: Embed Spotify --- */
@@ -160,37 +179,4 @@ img {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-}
-
-/* --- Tambahan untuk Lapisan 6 --- */
-.movie-posters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-.movie-poster {
-    width: 150px; /* Lebar poster */
-    height: 225px; /* Tinggi poster (aspek rasio 2:3) */
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-.movie-poster:hover {
-    transform: scale(1.05);
-}
-.next-photo-btn {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%; /* Membuat foto berbentuk bulat */
-    cursor: pointer;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-.next-photo-btn:hover {
-    transform: scale(1.1);
 }
