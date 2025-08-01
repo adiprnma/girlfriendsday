@@ -222,3 +222,42 @@ img {
 .love-emoji:hover {
     transform: scale(1.1);
 }
+/* Update gaya untuk h2 di dalam card-container */
+.card-container h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    font-size: 2em; /* Atur ukuran font agar tidak terlalu besar */
+    margin-top: 0;   /* Pastikan tidak ada margin di atas */
+    margin-bottom: 20px;
+    padding-top: 10px; /* Tambahkan padding di atas agar tidak terlalu mepet */
+}
+
+/* Pastikan card-container memiliki padding yang cukup */
+.card-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    background-color: #fce7f3;
+    border: 3px solid #ffb8d9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px; /* Padding ini penting agar konten tidak menempel di pinggir */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Konten dimulai dari atas */
+    align-items: center;
+}
+/* --- Tambahan untuk Lapisan 3 --- */
+
+.pinky-promise-btn {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+
+.pinky-promise-btn:hover {
+    transform: scale(1.1);
+}

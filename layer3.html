@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janji</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>My Promises</h2>
+        <p>
+            Sayangggg, aku tahu ada beberapa kebiasaan burukku yang sering bikin kamu kesal.
+            im really sowwyyy, karena sering ketiduran sebelum kamu, dan kadang 'budeg' jg kalau kamu lagi ngomong.
+            Aku tahu itu bikin kamu merasa aku nggak mendengarkanmu.
+        </p>
+        <p>
+            Maybe im not perfect, tapi aku berjanji akan terus berusaha jadi lebih baik untukmu.
+            Aku akan belajar lebih peka dan selalu mendengarkan setiap ceritamu.
+            I love u
+        </p>
+
+        <p style="margin-top: 30px; font-weight: bold;">Klik pinky promise ini sebagai tanda janjiku.</p>
+        <img src="images/pinky-promise.png" alt="Pinky Promise" class="pinky-promise-btn" id="nextPageBtn">
+    </div>
+
+    <script>
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        nextPageBtn.addEventListener('click', () => {
+            window.location.href = 'layer4.html';
+        });
+    </script>
+</body>
+</html>
