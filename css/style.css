@@ -7,7 +7,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
     display: flex;
-    flex-direction: column; /* Mengatur elemen di body secara vertikal */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -19,8 +19,6 @@ body {
     width: 600px;
     height: 400px;
     position: relative;
-    transform: scale(0.9);
-    transition: transform 0.5s ease-out;
     background-color: #fce7f3;
     border: 3px solid #ffb8d9;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -72,7 +70,7 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 30px; /* Jarak antara kotak dan tombol */
+    margin-top: 30px;
 }
 
 .button-group {
@@ -100,120 +98,36 @@ img {
     transform: translateY(-2px);
 }
 
-.love-emoji, .pinky-promise-btn {
+.love-emoji, .pinky-promise-btn, .music-emoji {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-.love-emoji:hover, .pinky-promise-btn:hover {
+.love-emoji:hover, .pinky-promise-btn:hover, .music-emoji:hover {
     transform: scale(1.1);
 }
 
 .love-emoji { font-size: 5em; }
 .pinky-promise-btn { width: 120px; }
-/* ================================ */
-/* General Body & Container Styling */
-/* ================================ */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(to bottom, #fde9f7, #f7d2e8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    overflow: hidden;
-}
+.music-emoji { font-size: 5em; }
 
-.card-container {
-    width: 600px;
-    height: 400px;
-    position: relative;
-    background-color: #fce7f3;
-    border: 3px solid #ffb8d9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Penyesuaian untuk tampilan mobile */
+/* --- Penyesuaian untuk tampilan mobile --- */
 @media (max-width: 650px) {
     .card-container {
-        width: 90%; /* Mengubah lebar menjadi 90% dari layar */
-        height: auto; /* Mengatur tinggi secara otomatis */
-        transform: scale(1); /* Menghilangkan scaling di mobile */
+        width: 90%;
+        height: auto;
+        transform: scale(1);
     }
     h1 { font-size: 2.2em; }
     h2 { font-size: 1.6em; }
     p { font-size: 1em; }
 }
 
-/* ... (Kode CSS lainnya tetap sama) ... */
-
-/* --- Tambahan untuk Lapisan 4 --- */
-.roblox-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+/* --- Tambahan untuk Lapisan 5 (Embed Spotify) --- */
+.spotify-embed {
+    width: 90%;
+    max-width: 350px;
+    height: 380px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-}
-.roblox-photo {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-.roblox-photo:hover {
-    transform: scale(1.05);
-}
-.avatar-nav {
-    width: 80px;
-    height: auto;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.avatar-nav:hover {
-    transform: scale(1.1);
-}
-/* --- Tambahan untuk Lapisan 4 --- */
-.roblox-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-.roblox-photo {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-.roblox-photo:hover {
-    transform: scale(1.05);
-}
-.avatar-nav {
-    width: 60px; /* Ukuran lebih kecil karena hanya kepala */
-    height: auto;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.avatar-nav:hover {
-    transform: scale(1.1);
 }

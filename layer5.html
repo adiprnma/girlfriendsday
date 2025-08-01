@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapisan 5: Playlist untukmu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card-container">
+        <h2>Playlist untukmu</h2>
+        <p>
+            Ini adalah playlist yang aku buat khusus untukmu. Semoga lagu-lagunya bisa jadi temanmu
+            saat bahagia atau saat kamu lagi butuh semangat.
+        </p>
+        
+        <iframe data-testid="embed-iframe" class="spotify-embed"
+            src="https://open.spotify.com/embed/playlist/3ABh8sBtTUbWM5gRL51NaC?utm_source=generator&theme=0"
+            width="100%" height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <div class="navigation-container">
+        <p>Klik not musik untuk lanjut!</p>
+        <span id="nextPageBtn" class="music-emoji">🎵</span>
+    </div>
+
+    <script>
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        nextPageBtn.addEventListener('click', () => {
+            window.location.href = 'layer6.html';
+        });
+    </script>
+</body>
+</html>
