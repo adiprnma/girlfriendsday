@@ -210,3 +210,15 @@ img {
     background-color: #c2185b;
     transform: translateY(-2px);
 }
+/* --- Tambahan untuk Lapisan 2 --- */
+
+.love-emoji {
+    font-size: 5em;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+
+.love-emoji:hover {
+    transform: scale(1.1);
+}
