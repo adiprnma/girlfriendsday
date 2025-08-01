@@ -3,89 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Pacarku Tersayang ❤️</title>
+    <title>For my gf, fifi</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Animation for nudging the button */
+        @keyframes nudge {
+            from { transform: translateX(0); }
+            to { transform: translateX(5px); }
+        }
+    </style>
 </head>
 <body>
-    <div class="book-container">
-        <div id="cover" class="page">
-            <div class="page-content">
-                <h1>Selamat Hari Girlfriend Sedunia!</h1>
-                <p>Ini adalah buku cinta spesial yang dibuat hanya untukmu, [**Nama Pacarmu**]!</p>
-                <img src="https://i.ibb.co/Czd5V5G/cat.jpg" alt="Kucing Lucu Interaktif" class="cat-interactive" id="catInteraction">
-                <p style="margin-top: 20px;">
-                    Tekan hidung kucing ini untuk membuka buku cinta kita!
-                </p>
-                </div>
-        </div>
+    <div class="card-container">
+        <div id="envelope" class="envelope">
+            <div class="envelope-flap"></div>
 
-        <div id="page2" class="page">
-            <div class="page-content">
-                <h2>Cari Hati Tersembunyi!</h2>
-                <p>Ada 3 hati kecil yang tersembunyi di halaman ini. Bisakah kamu menemukannya?</p>
-                <div class="hidden-heart-container">
-                    <div class="hidden-heart-item" data-original-text="🌟">🌟</div>
-                    <div class="hidden-heart-item" data-original-text="🌸">🌸</div>
-                    <div class="hidden-heart-item" data-original-text="🎈">🎈</div>
-                </div>
-                <p id="heartMessage" class="heart-message"></p>
+            <div class="card-inside">
+                <div class="card-content">
+                    <h1>Happy Girlfriend's day sayangg</h1>
+                    <img src="https://via.placeholder.com/300x200?text=Foto+Kalian" alt="Foto Kalian" style="max-width: 90%; border-radius: 10px; margin: 15px 0;">
+                    <p>
+                        Halo sayangggg
+                        <br><br>
+                        Sebelum kamu buka cardnya, aku mau bilang terima kasih karena telah memberi aku kesempatan untuk bisa dekat dengan kamu, kata frank ocean mah
+                        <br><br>
+                        If love had a color, it'd be the shade of your voice in the dark.
+                        <br><br>
+                        <span style="font-weight: bold;">With all my heart, Adi ❤️</span>
+                    </p>
             </div>
         </div>
-
-        <div id="page3" class="page">
-            <div class="page-content">
-                <h2>Kotak Kenangan Kita</h2>
-                <p>Klik kotak ini untuk memutar dan melihat kilasan kenangan manis kita!</p>
-                <div id="rotatingBox" class="rotating-box">
-                    Klik Aku!
-                </div>
-                <p id="memoryDisplay" class="memory-display"></p>
-            </div>
-        </div>
-
-        <div id="page4" class="page">
-            <div class="page-content">
-                <h2>Pecahkan Gelembungnya!</h2>
-                <p>Ada pesan rahasia di dalam gelembung-gelembung ini. Pecahkan semua untuk membacanya!</p>
-                <div class="bubble-container">
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                </div>
-                <p id="bubbleMessage" class="bubble-message"></p>
-            </div>
-        </div>
-
-        <div id="page5" class="page">
-            <div class="page-content">
-                <h2>Bunga Janjiku Untukmu</h2>
-                <p>Klik tunas bunga ini berkali-kali sampai mekar dan baca janjiku untukmu!</p>
-                <div class="flower-container">
-                    <div class="flower-bud" id="flowerBud">
-                        <div class="petal"></div>
-                        <div class="petal"></div>
-                        <div class="petal"></div>
-                        <div class="petal"></div>
-                    </div>
-                </div>
-                <p id="flowerMessage" class="flower-message"></p>
-                <p style="margin-top: 30px;">
-                    <a href="https://instagram.com/akun_instagram_kamu" target="_blank" style="color: #e91e63; text-decoration: none; font-weight: bold;">
-                        Terima kasih sudah membaca buku ini, Sayang! ❤️
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        </div>
-
-    <div class="controls">
-        <button id="prevBtn" class="nav-button">Halaman Sebelumnya</button>
-        <button id="nextBtn" class="nav-button">Halaman Selanjutnya</button>
     </div>
+
+        <div class="interaction-area">
+            <h2>Do you want to open it?</h2>
+            
+            <p id="persuasion-message"></p>
+
+            <div class="button-group">
+                <button id="openBtn" class="action-button">Open it</button>
+                <button id="noBtn" class="action-button">No, I'm shy</button>
+          </div>
+     </div>
+ </div>
 
     <script src="js/script.js"></script>
 </body>
