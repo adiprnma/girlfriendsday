@@ -179,3 +179,34 @@ img {
     from { transform: scale(1); }
     to { transform: scale(1.2); }
 }
+/* ... (kode CSS yang sudah ada) ... */
+
+/* Button & Interaction Styling */
+.interaction-area {
+    margin-top: 30px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.action-button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: #c2185b;
+    transform: translateY(-2px);
+}
